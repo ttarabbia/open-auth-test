@@ -3,18 +3,23 @@
 export default $config({
   app(input) {
     return {
-      name: "monorepo-template",
+      name: "open-auth-test",
       removal: input?.stage === "production" ? "retain" : "remove",
       protect: ["production"].includes(input?.stage),
       home: "aws",
     };
   },
   async run() {
+    const { api, auth } = await import("./infra/api");
     const storage = await import("./infra/storage");
-    await import("./infra/api");
+    const web = await import("./infra/web")
+
 
     return {
+      frontend: web.frontend.url,
       MyBucket: storage.bucket.name,
+      Auth: auth.url,
+      Api: api.url
     };
   },
 });

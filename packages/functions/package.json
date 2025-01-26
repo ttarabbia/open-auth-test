@@ -1,10 +1,13 @@
 {
-  "name": "@monorepo-template/functions",
+  "name": "@open-auth-test/functions",
   "version": "0.0.0",
   "type": "module",
   "dependencies": {
-    "@monorepo-template/core": "*",
-    "sst": "*"
+    "@open-auth-test/core": "*",
+    "@openauthjs/openauth": "^0.3.5",
+    "hono": "^4.6.16",
+    "sst": "*",
+    "valibot": "^1.0.0-beta.11"
   },
   "devDependencies": {
     "@types/aws-lambda": "^8"
